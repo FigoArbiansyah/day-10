@@ -16,14 +16,61 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <style>
+      #splashScreen {
+        overflow: hidden;
+      }
+
+      #splashScreen > p,
+      #splashScreen > div {
+        animation: fade 1s ease;
+      }
+
+      @keyframes fade {
+        0% {
+          transform: translateY(-300px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
 
   <body>
     <main class="min-vh-100">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary d-md-block d-none">
+        <div class="container">
+          <a class="navbar-brand fw-bolder" href="#">TF</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="https://www.figo.my.id"
+                  >About Creator</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div class="container pt-5">
-        <h3 class="mb-5">Transformasikan</h3>
+        <h3 class="mb-5 text-center">Transformasikan</h3>
         <div class="row mb-4">
-          <div class="col-md-6">
+          <div class="col-md-6 mx-auto">
             <p class="mb-3 fs-6 fw-semibold">
               Masukkan Kata dan Transformasikan
             </p>
@@ -48,7 +95,7 @@
           </div>
         </div>
         <div class="row mb-4">
-          <div class="col-md-6">
+          <div class="col-md-6 mx-auto">
             <p class="mb-3 fs-6 fw-semibold">
               Masukkan Angka dan Kita Jumlahkan dengan angka sebelumnya
             </p>
@@ -77,10 +124,27 @@
           </div>
         </div>
       </div>
+      <footer class="py-3 text-secondary text-center">
+        Created with 🤍 by Figo
+      </footer>
     </main>
-    <footer class="py-3 text-secondary text-center">
-      Created with 🤍 by Figo
-    </footer>
+    <section
+      id="splashScreen"
+      class="w-100 min-vh-100 bg-white position-absolute top-0 d-flex align-items-center justify-content-center flex-column"
+    >
+      <p class="font-monospace fs-3 fw-semibold">Transformasikan</p>
+      <div class="d-flex flex-column gap-1 align-items-center">
+        <span
+          style="width: 5rem; height: 4px; border-top: 3px solid black"
+        ></span>
+        <span
+          style="width: 3rem; height: 4px; border-top: 3px solid black"
+        ></span>
+        <span
+          style="width: 1rem; height: 4px; border-top: 3px solid black"
+        ></span>
+      </div>
+    </section>
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -115,6 +179,10 @@
         number.unshift(numbers[0]);
         resNumbers.textContent = number;
       };
+
+      setInterval(() => {
+        document.getElementById("splashScreen").classList.add("d-none");
+      }, 2000);
     </script>
   </body>
 </html>
